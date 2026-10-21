@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Wedding Of Akhwat & Ikhwat</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= COVER / OPENING ================= -->
+  <header id="opening" class="opening-section">
+    <div class="opening-bg">
+      <img src="assets/Galeri 1 - Copy.png" alt="Foto pasangan pengantin" class="opening-photo">
+      <div class="opening-overlay"></div>
+    </div>
+
+    <div class="opening-content">
+      <p class="opening-label">Welcome To</p>
+      <p class="opening-label">The Wedding Of</p>
+      <h1 class="opening-names">
+        <span class="bride-name">Akhwat</span>
+        <span class="ampersand">&amp;</span>
+        <span class="groom-name">Ikhwat</span>
+      </h1>
+      <p class="opening-date">Sabtu, 05 Desember 2026</p>
+
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <span class="countdown-number" id="days">00</span>
+          <span class="countdown-label">Hari</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="hours">00</span>
+          <span class="countdown-label">Jam</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="minutes">00</span>
+          <span class="countdown-label">Menit</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="seconds">00</span>
+          <span class="countdown-label">Detik</span>
+        </div>
+      </div>
+
+      <button type="button" id="openInvitation" class="btn-open-invitation">Buka Undangan</button>
+    </div>
+  </header>
+
+  <main id="mainContent" class="main-content">
+
+    <!-- ================= AYAT AL-QUR'AN ================= -->
+    <section id="quote" class="quote-section" aria-labelledby="quote-heading">
+      <h2 id="quote-heading" class="section-heading">Firman Allah SWT</h2>
+      <div class="quote-content">
+        <p class="quote-arabic" lang="ar" dir="rtl">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
+        </p>
+        <p class="quote-translation">
+          "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang."
+        </p>
+        <p class="quote-source">QS. Ar-Rum : 21</p>
+      </div>
+    </section>
+
+    <!-- ================= PROFIL MEMPELAI ================= -->
+    <section id="couple" class="couple-section" aria-labelledby="couple-heading">
+      <h2 id="couple-heading" class="section-heading">Mempelai</h2>
+
+      <div class="couple-wrapper">
+        <article class="couple-profile bride-profile">
+          <img src="assets/Foto Wanita.png" alt="Foto mempelai wanita" class="couple-photo">
+          <h3 class="couple-fullname">Akhwat</h3>
+          <p class="couple-parents">Putri Bungsu dari<br>Bapak Ali &amp; Ibu Siti</p>
+        </article>
+
+        <div class="couple-divider" aria-hidden="true">&amp;</div>
+
+        <article class="couple-profile groom">
+          <img src="assets/Foto Laki-laki.png" alt="Foto mempelai pria" class="couple-photo">
+          <h3 class="couple-fullname">Ikhwat</h3>
+          <p class="couple-parents">Putra Pertama dari<br>Bapak Hambali &amp; Ibu Fatimah</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= DETAIL ACARA ================= -->
+    <section id="event" class="event-section" aria-labelledby="event-heading">
+      <h2 id="event-heading" class="section-heading">Detail Acara</h2>
+
+      <article id="ceremony" class="event-card">
+        <h3 class="event-title">Akad Nikah</h3>
+        <p class="event-day">Sabtu</p>
+        <p class="event-date">05 Desember 2026</p>
+        <p class="event-time">08.00 WIB - Selesai</p>
+      </article>
+
+      <article id="reception" class="event-card">
+        <h3 class="event-title">Resepsi</h3>
+        <p class="event-day">Minggu</p>
+        <p class="event-date">06 Desember 2026</p>
+        <p class="event-time">08.00 WIB - Selesai</p>
+      </article>
+    </section>
+
+    <!-- ================= LOKASI ================= -->
+    <section id="location" class="location-section" aria-labelledby="location-heading">
+      <h2 id="location-heading" class="section-heading">Lokasi</h2>
+
+      <article class="location-card">
+        <h3 class="location-title">Akad Nikah</h3>
+        <p class="location-place">Nama Lokasi Akad</p>
+        <p class="location-address">Alamat lengkap lokasi akad nikah, kota, kode pos</p>
+        <a href="https://maps.google.com/?q=lokasi-akad" target="_blank" rel="noopener" class="btn-location">Lihat Lokasi</a>
+      </article>
+
+      <article class="location-card">
+        <h3 class="location-title">Resepsi</h3>
+        <p class="location-place">Nama Lokasi Resepsi</p>
+        <p class="location-address">Alamat lengkap lokasi resepsi, kota, kode pos</p>
+        <a href="https://maps.google.com/?q=lokasi-resepsi" target="_blank" rel="noopener" class="btn-location">Lihat Lokasi</a>
+      </article>
+    </section>
+
+    <!-- ================= LOVE STORY ================= -->
+    <section id="story" class="story-section" aria-labelledby="story-heading">
+      <h2 id="story-heading" class="section-heading">Love Story</h2>
+      <ol class="story-timeline">
+        <li class="story-item">
+          <p class="story-year">2019</p>
+          <h3 class="story-title">Pertama Bertemu</h3>
+          <p class="story-desc">Berawal dari sebuah pertemuan sederhana yang tak pernah kami sangka akan menjadi awal dari perjalanan panjang bersama. Dari sapaan kecil dan percakapan singkat, perlahan tumbuh sebuah cerita yang membawa kami hingga sampai di hari istimewa ini.</p>
+        </li>
+        <li class="story-item">
+          <p class="story-year">2020</p>
+          <h3 class="story-title">Mulai Dekat</h3>
+          <p class="story-desc">Seiring berjalannya waktu, kami semakin sering berbagi cerita dan mengenal satu sama lain. Dari percakapan sederhana, tumbuh rasa nyaman yang perlahan mengubah kedekatan menjadi sesuatu yang lebih berarti.</p>
+        </li>
+        <li class="story-item">
+          <p class="story-year">2024</p>
+          <h3 class="story-title">Lamaran</h3>
+          <p class="story-desc">Setelah melewati berbagai cerita dan semakin yakin satu sama lain, kami memutuskan untuk melangkah ke tahap yang lebih serius. Dengan penuh doa dan harapan, kami mengikat janji untuk melanjutkan perjalanan bersama menuju pernikahan.</p>
+        </li>
+        <li class="story-item">
+          <p class="story-year">2027</p>
+          <h3 class="story-title">Pernikahan</h3>
+          <p class="story-desc">Dengan penuh doa, keyakinan, dan dukungan dari keluarga, kami memantapkan hati untuk melangkah ke jenjang pernikahan. Kini, kami siap memulai lembaran baru sebagai pasangan, membangun kehidupan bersama dalam cinta dan kebahagiaan. </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ================= GALERI FOTO ================= -->
+    <section id="gallery" class="gallery-section" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading" class="section-heading">Our Gallery</h2>
+      <div class="gallery-grid">
+        <button type="button" class="gallery-item"><img src="assets/Galeri 1 - Copy.png" alt="Foto galeri pasangan 1" class="gallery-photo"></button>
+        <button type="button" class="gallery-item"><img src="assets/Foto Wanita.png" alt="Foto galeri pasangan 2" class="gallery-photo"></button>
+        <button type="button" class="gallery-item"><img src="assets/Galeri 2.png" alt="Foto galeri pasangan 3" class="gallery-photo"></button>
+        <button type="button" class="gallery-item"><img src="assets/Foto Wanita.png" alt="Foto galeri pasangan 4" class="gallery-photo"></button>
+        <button type="button" class="gallery-item"><img src="assets/Galeri 1 - Copy.png" alt="Foto galeri pasangan 5" class="gallery-photo"></button>
+        <button type="button" class="gallery-item"><img src="assets/Galeri 2.png" alt="Foto galeri pasangan 6" class="gallery-photo"></button>
+      </div>
+    </section>
+
+    <!-- ================= WEDDING GIFT ================= -->
+    <section id="gift" class="gift-section" aria-labelledby="gift-heading">
+      <h2 id="gift-heading" class="section-heading">Wedding Gift</h2>
+
+      <article class="gift-card">
+        <p class="gift-bank">Bank BCA</p>
+        <p class="gift-account-number" id="accountNumber1">1234567890</p>
+        <p class="gift-account-owner">a.n. Nama Lengkap Pria</p>
+        <button type="button" class="btn-copy" data-copy-target="accountNumber1">Salin Nomor Rekening</button>
+      </article>
+
+      <article class="gift-card">
+        <p class="gift-bank">Bank Mandiri</p>
+        <p class="gift-account-number" id="accountNumber2">0987654321</p>
+        <p class="gift-account-owner">a.n. Nama Lengkap Wanita</p>
+        <button type="button" class="btn-copy" data-copy-target="accountNumber2">Salin Nomor Rekening</button>
+      </article>
+
+      <div class="gift-address">
+        <h3 class="gift-address-heading">Kirim Hadiah (Opsional)</h3>
+        <p class="gift-address-text">Jln.Pramuka, Air Meles Atas</p>
+      </div>
+    </section>
+
+    <!-- ================= RSVP ================= -->
+    <section id="rsvp" class="rsvp-section" aria-labelledby="rsvp-heading">
+      <h2 id="rsvp-heading" class="section-heading">RSVP</h2>
+
+      <form id="rsvpForm" class="rsvp-form">
+        <fieldset class="form-group">
+          <legend>Konfirmasi Kehadiran</legend>
+          <label class="radio-label"><input type="radio" name="attendance" value="Hadir" required> Hadir</label>
+          <label class="radio-label"><input type="radio" name="attendance" value="Tidak Hadir"> Tidak Hadir</label>
+        </fieldset>
+
+                <div class="form-group">
+          <label for="rsvpMessage">Ucapan / Pesan</label>
+          <textarea id="rsvpMessage" name="rsvpMessage" rows="4"></textarea>
+        </div>
+
+        <button type="submit" id="rsvpSubmitBtn" class="btn-submit-rsvp">Kirim RSVP</button>
+
+        <p id="rsvpStatus" class="rsvp-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- ================= UCAPAN & DOA ================= -->
+    <section id="wishes" class="wishes-section" aria-labelledby="wishes-heading">
+      <h2 id="wishes-heading" class="section-heading">Ucapan &amp; Doa</h2>
+      <div class="wishes-list" id="wishesList">
+        <p class="wishes-empty" id="wishesEmpty">Belum ada ucapan. Jadilah yang pertama memberikan doa 🤍</p>
+      </div>
+    </section>
+
+    <!-- ================= CLOSING ================= -->
+    <footer id="closing" class="closing-section" aria-labelledby="closing-heading">
+      <img src="assets/Galeri 2.png" alt="Foto pasangan pengantin" class="closing-photo">
+      <h2 id="closing-heading" class="closing-names">Akhwat &amp; Ikhwat</h2>
+      <p class="closing-thanks">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.</p>
+      <p class="closing-prayer">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+      <p class="closing-family">Kami yang berbahagia,<br>Keluarga Besar Kedua Mempelai</p>
+    </footer>
+
+  </main>
+
+  <!-- ================= MUSIC CONTROL ================= -->
+  <div class="music-control">
+    <audio id="bgMusic" src="assets/Latar Musik.mp3" loop preload="none"></audio>
+    <button type="button" id="playMusic" class="btn-music-play" aria-label="Putar musik">Play</button>
+    <button type="button" id="pauseMusic" class="btn-music-pause" aria-label="Jeda musik">Pause</button>
+  </div>
+
+  <!-- ================= NAVIGASI ================= -->
+  <nav class="main-nav" aria-label="Navigasi utama">
+    <ul class="nav-list">
+      <li><a href="#home" class="nav-link">Home</a></li>
+      <li><a href="#couple" class="nav-link">Mempelai</a></li>
+      <li><a href="#event" class="nav-link">Acara</a></li>
+      <li><a href="#gallery" class="nav-link">Galeri</a></li>
+      <li><a href="#rsvp" class="nav-link">RSVP</a></li>
+    </ul>
+  </nav>
+
+  <script src="script.js"></script>
+</body>
+</html>

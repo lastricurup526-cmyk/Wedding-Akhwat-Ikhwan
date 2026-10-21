@@ -1,0 +1,834 @@
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  background-color: #FDFBF7;
+  color: #4A4238;
+  line-height: 1.6;
+  overflow-x: hidden;
+  overflow-y: hidden; /* dikunci saat cover tampil, diaktifkan lagi oleh JS */
+  text-align: center; /* DEFAULT: rata tengah di seluruh halaman */
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ============================================
+   VARIABLES
+   ============================================ */
+:root {
+  --color-cream: #FDFBF7;
+  --color-cream-dark: #F2EDE4;
+  --color-blue-pastel: #C9D9E6;
+  --color-blue-dark: #7B93A8;
+  --color-gold: #C9A15A;
+  --color-gold-light: #E4CFA0;
+  --color-text: #4A4238;
+  --color-text-light: #8A8072;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Poppins', 'Segoe UI', sans-serif;
+  --section-padding: 60px 20px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-heading::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin: 12px auto 0;
+}
+
+/* ============================================
+   SECTION CONTAINER — supaya semua section pasti center
+   ============================================ */
+.main-content > section,
+.main-content > footer {
+  width: 100%;
+  padding: var(--section-padding);
+}
+
+/* ============================================
+   OPENING / COVER
+   ============================================ */
+.opening-section {
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+  min-height: 600px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+.opening-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.opening-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.opening-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.opening-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(74,66,56,0.15) 0%, rgba(74,66,56,0.55) 75%, rgba(74,66,56,0.75) 100%);
+}
+
+.opening-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  color: #FDFBF7;
+  padding: 40px 24px 56px;
+}
+
+.opening-label {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1rem;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.opening-names {
+  font-size: 2.2rem;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  color: #FDFBF7;
+}
+
+.opening-names .ampersand {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--color-gold-light);
+  margin: 4px 0;
+}
+
+.opening-date {
+  font-size: 0.95rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 28px;
+  opacity: 0.9;
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.countdown-item {
+  background: rgba(253, 251, 247, 0.12);
+  border: 1px solid rgba(253, 251, 247, 0.4);
+  border-radius: 8px;
+  padding: 10px 8px;
+  min-width: 56px;
+  backdrop-filter: blur(2px);
+}
+
+.countdown-number {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.countdown-label {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  margin-top: 2px;
+  opacity: 0.85;
+}
+
+.countdown-ended {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: #FDFBF7;
+  letter-spacing: 1px;
+}
+
+.btn-open-invitation {
+  background-color: var(--color-gold);
+  color: #FDFBF7;
+  padding: 12px 32px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-open-invitation:hover,
+.btn-open-invitation:focus {
+  background-color: var(--color-gold-light);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+
+.main-content.content-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   QUOTE / AYAT AL-QUR'AN
+   ============================================ */
+.quote-section {
+  background-color: var(--color-cream-dark);
+}
+
+.quote-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.quote-arabic {
+  font-size: 1.5rem;
+  line-height: 2.2;
+  margin-bottom: 20px;
+  color: var(--color-text);
+}
+
+.quote-translation {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin-bottom: 12px;
+  padding: 0 8px;
+}
+
+.quote-source {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  letter-spacing: 1px;
+}
+
+/* ============================================
+   COUPLE / PROFIL MEMPELAI
+   ============================================ */
+.couple-section {
+  background-color: var(--color-cream);
+}
+
+.couple-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.couple-profile {
+  text-align: center;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.couple-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--color-gold-light);
+  margin: 0 auto 16px;
+}
+
+.couple-fullname {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.couple-nickname {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-bottom: 10px;
+}
+
+.couple-parents {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+.couple-divider {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-gold);
+}
+
+/* ============================================
+   DETAIL ACARA — CENTERED, VERTICAL
+   ============================================ */
+.event-section {
+  background-color: var(--color-blue-pastel);
+  text-align: center;
+}
+
+.event-card {
+  background-color: #FDFBF7;
+  border-radius: 12px;
+  padding: 28px 24px;
+  text-align: center;
+  max-width: 380px;
+  margin: 0 auto 24px;
+  box-shadow: 0 6px 18px rgba(74,66,56,0.08);
+}
+
+.event-card:last-child {
+  margin-bottom: 0;
+}
+
+.event-title {
+  font-size: 1.2rem;
+  color: var(--color-blue-dark);
+  margin-bottom: 12px;
+}
+
+.event-day,
+.event-date,
+.event-time,
+.event-location {
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+/* ============================================
+   LOKASI (SECTION BARU)
+   ============================================ */
+.location-section {
+  background-color: var(--color-cream);
+  text-align: center;
+}
+
+.location-card {
+  background-color: #FDFBF7;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  max-width: 380px;
+  margin: 0 auto 20px;
+  box-shadow: 0 6px 18px rgba(74,66,56,0.06);
+}
+
+.location-card:last-child {
+  margin-bottom: 0;
+}
+
+.location-title {
+  font-size: 1.1rem;
+  color: var(--color-blue-dark);
+  margin-bottom: 8px;
+}
+
+.location-place {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.location-address {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+.btn-location {
+  display: inline-block;
+  border: 1px solid var(--color-blue-dark);
+  color: var(--color-blue-dark);
+  padding: 8px 24px;
+  border-radius: 24px;
+  font-size: 0.85rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-location:hover {
+  background-color: var(--color-blue-dark);
+  color: #FDFBF7;
+}
+
+/* ============================================
+   LOVE STORY
+   ============================================ */
+.story-section {
+  background-color: var(--color-cream);
+}
+
+.story-timeline {
+  max-width: 420px;
+  margin: 0 auto;
+  border-left: 2px solid var(--color-gold-light);
+  padding-left: 24px;
+  text-align: left; /* pengecualian: timeline lebih nyaman dibaca rata kiri */
+}
+
+.story-item {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.story-item:last-child {
+  margin-bottom: 0;
+}
+
+.story-item::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+
+.story-year {
+  font-size: 0.8rem;
+  color: var(--color-gold);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.story-title {
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.story-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+}
+
+/* ============================================
+   GALLERY
+   ============================================ */
+.gallery-section {
+  background-color: var(--color-cream-dark);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 6px;
+  aspect-ratio: 1 / 1;
+}
+
+.gallery-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-photo {
+  transform: scale(1.06);
+}
+
+/* ============================================
+   WEDDING GIFT
+   ============================================ */
+.gift-section {
+  background-color: var(--color-cream);
+}
+
+.gift-card {
+  background-color: var(--color-blue-pastel);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 360px;
+  margin: 0 auto 20px;
+}
+
+.gift-bank {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.gift-account-number {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.gift-account-owner {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  margin-bottom: 16px;
+}
+
+.btn-copy {
+  background-color: var(--color-gold);
+  color: #FDFBF7;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+.gift-address {
+  max-width: 360px;
+  margin: 20px auto 0;
+}
+
+.gift-address-heading {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.gift-address-text {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
+/* ============================================
+   RSVP
+   ============================================ */
+.rsvp-section {
+  background-color: var(--color-blue-pastel);
+}
+
+.rsvp-form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #FDFBF7;
+  padding: 24px;
+  border-radius: 12px;
+  text-align: left; /* pengecualian: form lebih mudah diisi rata kiri */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group legend {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: var(--color-text);
+}
+
+.radio-label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.form-group input[type="number"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-cream-dark);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  background-color: var(--color-cream);
+}
+
+.btn-submit-rsvp {
+  width: 100%;
+  background-color: var(--color-gold);
+  color: #FDFBF7;
+  padding: 12px;
+  border-radius: 24px;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.btn-submit-rsvp:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.rsvp-status {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 12px;
+  min-height: 20px;
+}
+
+.rsvp-status.status-success {
+  color: #5B8266;
+}
+
+.rsvp-status.status-error {
+  color: #B5544B;
+}
+
+/* ============================================
+   WISHES / UCAPAN & DOA
+   ============================================ */
+.wishes-section {
+  background-color: var(--color-cream);
+}
+
+.wishes-list {
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wish-card {
+  background-color: var(--color-cream-dark);
+  border-radius: 10px;
+  padding: 16px 18px;
+  text-align: left; /* pengecualian: kartu ucapan lebih nyaman rata kiri */
+}
+
+.wish-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.wish-message {
+  font-size: 0.85rem;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.wish-time {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+}
+
+.wishes-empty {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  padding: 20px 0;
+}
+
+/* ============================================
+   CLOSING
+   ============================================ */
+.closing-section {
+  background-color: var(--color-text);
+  color: var(--color-cream);
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.closing-photo {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  border: 2px solid var(--color-gold-light);
+}
+
+.closing-names {
+  font-size: 1.5rem;
+  color: var(--color-cream);
+  margin-bottom: 16px;
+}
+
+.closing-thanks,
+.closing-prayer {
+  font-size: 0.9rem;
+  max-width: 340px;
+  margin: 0 auto 12px;
+  opacity: 0.9;
+}
+
+.closing-family {
+  font-size: 0.85rem;
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+/* ============================================
+   MUSIC CONTROL
+   ============================================ */
+.music-control {
+  position: fixed;
+  bottom: 80px;
+  right: 16px;
+  z-index: 50;
+  display: flex;
+  gap: 6px;
+}
+
+.btn-music-play,
+.btn-music-pause {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+  color: #FDFBF7;
+  font-size: 0.7rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+.main-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #FDFBF7;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.08);
+  z-index: 40;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.nav-link {
+  font-size: 0.75rem;
+  color: var(--color-text-light);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-gold);
+}
+
+/* ============================================
+   LIGHTBOX GALERI
+   ============================================ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.lightbox-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 90vh;
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  color: #FDFBF7;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* ============================================
+   RESPONSIVE - TABLET & DESKTOP
+   ============================================ */
+@media (min-width: 640px) {
+  .opening-names {
+    font-size: 2.6rem;
+  }
+
+  .couple-wrapper {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
